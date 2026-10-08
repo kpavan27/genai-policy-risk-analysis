@@ -1,0 +1,274 @@
+{
+  "dataset": {
+    "prompts": 5082,
+    "human_annotated": 2801,
+    "non_annotated_all_labelled_non_toxic": true,
+    "non_annotated_max_mod_score_p99": 0.007463161367923002
+  },
+  "coverage": {
+    "none": 12,
+    "covered": 6,
+    "partial": 2
+  },
+  "moderation_quality": {
+    "n_human_annotated": 2801,
+    "n_toxic": 384,
+    "n_jailbreak": 113,
+    "toxicity_pr_auc": 0.6960746627616046,
+    "toxicity_at_policy_threshold": {
+      "threshold": 0.5,
+      "recall": 0.15104166666666666,
+      "recall_ci": [
+        0.11869284937097267,
+        0.19030314921817004
+      ],
+      "precision": 0.90625,
+      "tp": 58,
+      "fp": 6,
+      "fn": 326,
+      "flagged_per_1k_prompts": 22.84898250624777
+    },
+    "toxicity_at_best_f1_threshold": {
+      "threshold": 0.023935094475746155,
+      "recall": 0.6822916666666666,
+      "recall_ci": [
+        0.634114766050467,
+        0.7268574734925181
+      ],
+      "precision": 0.6599496221662469,
+      "tp": 262,
+      "fp": 135,
+      "fn": 122,
+      "flagged_per_1k_prompts": 141.7350946090682
+    },
+    "jailbreak_recall_at_policy_threshold": {
+      "threshold": 0.5,
+      "recall": 0.1415929203539823,
+      "recall_ci": [
+        0.0890730342787498,
+        0.21767988736791333
+      ],
+      "precision": 0.25,
+      "tp": 16,
+      "fp": 48,
+      "fn": 97
+    },
+    "jailbreak_recall_at_best_f1_threshold": {
+      "threshold": 0.023935094475746155,
+      "recall": 0.5663716814159292,
+      "recall_ci": [
+        0.47430454677112915,
+        0.6540745418128221
+      ],
+      "precision": 0.16120906801007556,
+      "tp": 64,
+      "fp": 333,
+      "fn": 49
+    },
+    "jailbreak_median_mod_max": 0.03316015750169754,
+    "toxic_non_jailbreak_median_mod_max": 0.1133345514535904,
+    "top_category_of_flagged_toxic": {
+      "sexual": 39,
+      "violence": 9,
+      "harassment": 5,
+      "self-harm": 4,
+      "sexual/minors": 1
+    },
+    "missed_toxic_top_category": {
+      "sexual": 171,
+      "harassment": 66,
+      "violence": 55,
+      "hate": 19,
+      "sexual/minors": 8
+    }
+  },
+  "risk_ranking": [
+    {
+      "detector": "2c",
+      "hits": 52,
+      "per_1k_prompts": 10.232192050373868,
+      "moderation_flag_rate": 0.057692307692307696,
+      "human_annotated_hits": 52,
+      "human_toxic_rate_among_hits": 0.7692307692307693,
+      "human_jailbreak_rate_among_hits": 0.75,
+      "clauses": "2c Circumventing safety filters (jailbreaks)",
+      "severity": 2,
+      "unflagged_per_1k": 9.641873278236915,
+      "risk_score": 19.28374655647383
+    },
+    {
+      "detector": "1e",
+      "hits": 16,
+      "per_1k_prompts": 3.1483667847304213,
+      "moderation_flag_rate": 0.0,
+      "human_annotated_hits": 13,
+      "human_toxic_rate_among_hits": 1.0,
+      "human_jailbreak_rate_among_hits": 0.07692307692307693,
+      "clauses": "1e Illegal acts, regulated goods and substances",
+      "severity": 2,
+      "unflagged_per_1k": 3.1483667847304213,
+      "risk_score": 6.296733569460843
+    },
+    {
+      "detector": "2a",
+      "hits": 9,
+      "per_1k_prompts": 1.770956316410862,
+      "moderation_flag_rate": 0.1111111111111111,
+      "human_annotated_hits": 8,
+      "human_toxic_rate_among_hits": 0.5,
+      "human_jailbreak_rate_among_hits": 0.0,
+      "clauses": "2a Spam, phishing or malware",
+      "severity": 2,
+      "unflagged_per_1k": 1.5741833923652104,
+      "risk_score": 3.148366784730421
+    },
+    {
+      "detector": "4d",
+      "hits": 4,
+      "per_1k_prompts": 0.7870916961826053,
+      "moderation_flag_rate": 0.0,
+      "human_annotated_hits": 3,
+      "human_toxic_rate_among_hits": 0.0,
+      "human_jailbreak_rate_among_hits": 0.0,
+      "clauses": "4d Misleading claims: civic or health",
+      "severity": 2,
+      "unflagged_per_1k": 0.7870916961826053,
+      "risk_score": 1.5741833923652107
+    },
+    {
+      "detector": "4a",
+      "hits": 3,
+      "per_1k_prompts": 0.5903187721369539,
+      "moderation_flag_rate": 0.0,
+      "human_annotated_hits": 3,
+      "human_toxic_rate_among_hits": 0.0,
+      "human_jailbreak_rate_among_hits": 0.0,
+      "clauses": "4a Fraud, scams, deception",
+      "severity": 2,
+      "unflagged_per_1k": 0.5903187721369539,
+      "risk_score": 1.1806375442739079
+    },
+    {
+      "detector": "4b",
+      "hits": 3,
+      "per_1k_prompts": 0.5903187721369539,
+      "moderation_flag_rate": 0.0,
+      "human_annotated_hits": 3,
+      "human_toxic_rate_among_hits": 0.3333333333333333,
+      "human_jailbreak_rate_among_hits": 0.0,
+      "clauses": "4b Impersonation to deceive",
+      "severity": 2,
+      "unflagged_per_1k": 0.5903187721369539,
+      "risk_score": 1.1806375442739079
+    },
+    {
+      "detector": "1f_1g",
+      "hits": 2,
+      "per_1k_prompts": 0.39354584809130266,
+      "moderation_flag_rate": 0.0,
+      "human_annotated_hits": 1,
+      "human_toxic_rate_among_hits": 0.0,
+      "human_jailbreak_rate_among_hits": 0.0,
+      "clauses": "1f Violating rights, e.g. personal data without consent / 1g Tracking or monitoring people without consent",
+      "severity": 2,
+      "unflagged_per_1k": 0.39354584809130266,
+      "risk_score": 0.7870916961826053
+    }
+  ],
+  "jailbreak_detector": {
+    "v1": {
+      "precision": 0.582089552238806,
+      "recall": 0.34513274336283184,
+      "tp": 39,
+      "fp": 28,
+      "fn": 74,
+      "moderation_recall_same_prompts": 0.1415929203539823,
+      "union_recall": 0.4690265486725664
+    },
+    "current": {
+      "precision": 0.75,
+      "recall": 0.34513274336283184,
+      "tp": 39,
+      "fp": 13,
+      "fn": 74,
+      "moderation_recall_same_prompts": 0.1415929203539823,
+      "union_recall": 0.4690265486725664
+    }
+  },
+  "regulated_goods_human_annotated": {
+    "n": 13,
+    "human_toxic": 13,
+    "moderation_flagged": 0,
+    "max_mod_score": 0.3437536656856537,
+    "flag_rate_ci": [
+      0.0,
+      0.22809537513180025
+    ]
+  },
+  "missed_toxic": {
+    "n": 326,
+    "share_jailbreak": 0.29754601226993865,
+    "themes_top_terms": [
+      [
+        "dan",
+        "chatgpt",
+        "character",
+        "pretend",
+        "responses",
+        "dan responses",
+        "information",
+        "date"
+      ],
+      [
+        "write",
+        "story",
+        "write story",
+        "girl",
+        "woman",
+        "erotic",
+        "short",
+        "breasts"
+      ],
+      [
+        "tell",
+        "joke",
+        "tell joke",
+        "meth",
+        "sex",
+        "hello",
+        "girl",
+        "cook"
+      ],
+      [
+        "ai",
+        "user",
+        "like",
+        "answer",
+        "roleplay",
+        "say",
+        "content",
+        "mode"
+      ],
+      [
+        "make",
+        "bomb",
+        "make bomb",
+        "meth",
+        "make joke",
+        "home",
+        "know",
+        "build"
+      ],
+      [
+        "women",
+        "joke",
+        "man",
+        "attractive",
+        "master",
+        "make joke",
+        "men",
+        "happen"
+      ]
+    ]
+  }
+}

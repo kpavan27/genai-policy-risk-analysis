@@ -1,0 +1,21 @@
+clause,section,title,moderation_coverage,moderation_categories
+1a,Dangerous or illegal,Child sexual abuse or exploitation,covered,sexual/minors
+1b,Dangerous or illegal,Violent extremism or terrorism,partial,"hate, hate/threatening, violence"
+1c,Dangerous or illegal,Non-consensual intimate imagery,partial,sexual
+1d,Dangerous or illegal,Self-harm,covered,"self-harm, self-harm/intent, self-harm/instructions"
+1e,Dangerous or illegal,"Illegal acts, regulated goods and substances",none,
+1f,Dangerous or illegal,"Violating rights, e.g. personal data without consent",none,
+1g,Dangerous or illegal,Tracking or monitoring people without consent,none,
+1h,Dangerous or illegal,High-risk automated decisions without oversight,none,
+2a,Security,"Spam, phishing or malware",none,
+2b,Security,Abusing or disrupting infrastructure,none,
+2c,Security,Circumventing safety filters (jailbreaks),none,
+3a,"Sexual, violent, hateful",Hate speech,covered,"hate, hate/threatening"
+3b,"Sexual, violent, hateful","Harassment, bullying, intimidation",covered,"harassment, harassment/threatening"
+3c,"Sexual, violent, hateful",Violence: depicting or inciting,covered,"violence, violence/graphic"
+3d,"Sexual, violent, hateful",Sexually explicit content,covered,sexual
+4a,"Misinformation, misrepresentation","Fraud, scams, deception",none,
+4b,"Misinformation, misrepresentation",Impersonation to deceive,none,
+4c,"Misinformation, misrepresentation",Misleading claims of expertise,none,
+4d,"Misinformation, misrepresentation",Misleading claims: civic or health,none,
+4e,"Misinformation, misrepresentation",Passing AI content off as human,none,
