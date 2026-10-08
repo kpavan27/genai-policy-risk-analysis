@@ -1,0 +1,103 @@
+# Google Generative AI Prohibited Use Policy, 17 Dec 2024 (titles paraphrased)
+# https://policies.google.com/terms/generative-ai/use-policy
+
+clauses:
+  "1a": {section: "Dangerous or illegal", title: "Child sexual abuse or exploitation", severity: 3}
+  "1b": {section: "Dangerous or illegal", title: "Violent extremism or terrorism", severity: 3}
+  "1c": {section: "Dangerous or illegal", title: "Non-consensual intimate imagery", severity: 3}
+  "1d": {section: "Dangerous or illegal", title: "Self-harm", severity: 3}
+  "1e": {section: "Dangerous or illegal", title: "Illegal acts, regulated goods and substances", severity: 2}
+  "1f": {section: "Dangerous or illegal", title: "Violating rights, e.g. personal data without consent", severity: 2}
+  "1g": {section: "Dangerous or illegal", title: "Tracking or monitoring people without consent", severity: 2}
+  "1h": {section: "Dangerous or illegal", title: "High-risk automated decisions without oversight", severity: 2}
+  "2a": {section: "Security", title: "Spam, phishing or malware", severity: 2}
+  "2b": {section: "Security", title: "Abusing or disrupting infrastructure", severity: 2}
+  "2c": {section: "Security", title: "Circumventing safety filters (jailbreaks)", severity: 2}
+  "3a": {section: "Sexual, violent, hateful", title: "Hate speech", severity: 2}
+  "3b": {section: "Sexual, violent, hateful", title: "Harassment, bullying, intimidation", severity: 2}
+  "3c": {section: "Sexual, violent, hateful", title: "Violence: depicting or inciting", severity: 2}
+  "3d": {section: "Sexual, violent, hateful", title: "Sexually explicit content", severity: 1}
+  "4a": {section: "Misinformation, misrepresentation", title: "Fraud, scams, deception", severity: 2}
+  "4b": {section: "Misinformation, misrepresentation", title: "Impersonation to deceive", severity: 2}
+  "4c": {section: "Misinformation, misrepresentation", title: "Misleading claims of expertise", severity: 1}
+  "4d": {section: "Misinformation, misrepresentation", title: "Misleading claims: civic or health", severity: 2}
+  "4e": {section: "Misinformation, misrepresentation", title: "Passing AI content off as human", severity: 1}
+
+# severity: 1 limited, 3 severe
+
+moderation_crosswalk:
+  "sexual/minors": {"1a": full}
+  "self-harm": {"1d": full}
+  "self-harm/intent": {"1d": full}
+  "self-harm/instructions": {"1d": full}
+  "hate": {"3a": full, "1b": partial}
+  "hate/threatening": {"3a": full, "1b": partial}
+  "harassment": {"3b": full}
+  "harassment/threatening": {"3b": full}
+  "violence": {"3c": full, "1b": partial}
+  "violence/graphic": {"3c": full}
+  "sexual": {"3d": full, "1c": partial}
+
+flag_threshold: 0.5
+
+# lexicon detectors for clauses with no moderation category
+detectors:
+  "2c":
+    - '\bignore (all |any |the |your )?(previous|prior|above|earlier) (instructions|rules|prompts?)'
+    - '\b(developer|god|jailbreak|unrestricted) mode\b'
+    - '(?-i:\bDAN\b)'
+    - '\bdo anything now\b'
+    - '\b(no|without (any )?)(restrictions|limitations|filters|censorship|ethical guidelines)\b'
+    - '\b(unfiltered|uncensored|amoral)\b'
+    - '\byou are no longer\b'
+    - '\bstay in character\b'
+    - '\b(pretend|imagine) (that )?you (are|have) no (restrictions|rules|limits|filters|morals|ethics)'
+    - '\bfrom now on,? you (are|will)\b'
+  "2a":
+    - '\b(malware|ransomware|keylogger|trojan|botnet|rootkit|spyware)\b'
+    - '\b(ddos|sql injection|reverse shell|backdoor|exploit code|zero[- ]day)\b'
+    - '\bphishing\b'
+    - '\b(write|create|generate) .{0,30}\b(virus|worm)\b'
+    - '\bspam (emails?|messages?|bots?)\b'
+    - '\bhack (into|someone|a |an |my )'
+  "4a":
+    - '\b(scam|scams|scammer|fraud|fraudulent|ponzi|pyramid scheme)\b'
+    - '\b(launder|laundering)\b'
+    - '\bfake (id|ids|identity|reviews?|invoices?|documents?|passport|receipts?)\b'
+    - '\bcounterfeit\b'
+    - '\b(steal|stolen) (credit card|identity|identities|passwords?|accounts?)\b'
+  "1f_1g":
+    - '\b(social security number|ssn|home address|phone number) of\b'
+    - '\b(track|spy on|stalk|monitor) (my |someone|a person|people|him|her)\b'
+    - '\bdox(x)?(ing)?\b'
+    - '\bfind (out )?where .{0,20} lives\b'
+    - '\bpersonal (information|details|data) (of|about) \b'
+  "1e":
+    - '\b(make|cook|synthesi[sz]e|produce|grow) .{0,20}\b(meth|methamphetamine|cocaine|heroin|lsd|mdma|fentanyl|crack)\b'
+    - '\b(buy|get|obtain) .{0,20}\b(drugs|cocaine|heroin|meth|guns?|firearms?)\b.{0,20}\b(online|illegally|without)'
+    - '\bwithout a prescription\b'
+    - '\bdark ?web\b'
+    - '\b(make|build) .{0,15}\b(bomb|explosive|silencer|ghost gun)\b'
+  "4b":
+    - '\bimpersonat(e|ing|ion)\b'
+    - '\b(pretend|posing|pose) (to be|as) (a |my |the )?(doctor|lawyer|police|officer|bank|ceo|government)\b'
+  "4d":
+    - '\bfake news\b'
+    - '\b(election|vote) (was |is )?(rigged|stolen)\b'
+    - '\bvaccines? (cause|causes) \b'
+    - '\b(flat earth|hoax)\b'
+    - '\bconspiracy theor(y|ies)\b'
+
+# v1 pattern, replaced after it matched ordinary role-play prompts
+detector_revisions:
+  "2c":
+    removed: ['\b(pretend|imagine) (that )?you (are|have) (no|an? )']
+
+detector_clauses:
+  "2c": ["2c"]
+  "2a": ["2a"]
+  "4a": ["4a"]
+  "1f_1g": ["1f", "1g"]
+  "1e": ["1e"]
+  "4b": ["4b"]
+  "4d": ["4d"]
