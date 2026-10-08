@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "policy-risk"
+version = "1.0.0"
+description = "Sizing the gap between a written GenAI usage policy and an off-the-shelf moderation signal, on real user prompts."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Pavan Kolasani" }]
+dependencies = ["pandas>=2.0", "numpy>=1.24", "scikit-learn>=1.3", "matplotlib>=3.7", "pyyaml>=6", "pyarrow>=14"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.4"]
+
+[project.scripts]
+policy-risk = "policy_risk.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
