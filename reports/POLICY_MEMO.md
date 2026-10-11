@@ -62,7 +62,7 @@ explosives) mapped to clause 1e, because tuning existing categories cannot recov
 ## What the data cannot tell us
 
 Fraud and scams (4a), malware and phishing (2a), privacy and tracking (1f/1g) and
-civic/health misinformation (4d) each matched 9 or fewer prompts, at low precision. In
+civic/health misinformation (4d) each matched 9 or fewer prompts. In
 this traffic they are either rare or phrased in ways a lexicon does not catch. Absence
 of evidence here is a **monitoring gap, not a clean bill of health**: these clauses have
 no moderation signal at all, so a rise in volume would go unnoticed. A labelled sample
